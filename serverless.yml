@@ -2,6 +2,7 @@ service: voa-feedparser
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-offline
 
 provider:
   name: aws
@@ -17,3 +18,4 @@ functions:
       - http:
           path: articles
           method: get
+          cors: true

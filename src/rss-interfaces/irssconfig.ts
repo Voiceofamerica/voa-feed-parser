@@ -1,4 +1,4 @@
-const feedUrl = `http://www.rferl.org/mobapp/config.xml`
+const feedUrl = `mobapp/config.xml`
 
 // Feed Parameters
 // None

@@ -1,4 +1,4 @@
-const feedUrl = `http://www.rferl.org/mobapp/zones.xml`
+const feedUrl = `mobapp/zones.xml`
 
 // Feed Parameters
 /** SiteID integer null Identifier of the website. When parameter is not present, id of

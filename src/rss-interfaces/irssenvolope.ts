@@ -4,9 +4,9 @@ export interface IFeedUrl {
   feedUrl: string
 }
 
-export interface IFeed<TSource, TResult> extends IFeedUrl {
+export interface IFeed<TSource> extends IFeedUrl {
   mapData: IMapFunction<TSource>
-  adaptData: IAdaptFunction<TSource, TResult>
+  // adaptData: IAdaptFunction<TSource, TResult>
   feedUrl: string
 }
 

@@ -1,15 +1,11 @@
 import { IArticle } from 'voa-core-shared'
 import { IFeed, IRssEnvolope, IFeedUrl } from './irssenvolope'
 
-export class RssArticle implements IFeed<IRssArticle, IArticle> {
-  readonly feedUrl = 'https://www.rferl.org/mobapp/articles.xml'
+export class RssArticle implements IFeed<IRssArticle> {
+  readonly feedUrl = 'mobapp/articles.xml'
 
   mapData(data: IRssEnvolope): IRssArticle[] {
     return data.rss.channel.item.map(i => i.article)
-  }
-
-  adaptData(source: IRssArticle[]): IArticle[] {
-    return [] as IArticle[]
   }
 }
 
@@ -18,9 +14,9 @@ export interface IRssArticleEnvelope {
 }
 
 export interface IRssArticle {
-  id: number
-  site: number
-  zone: number
+  id: string
+  site: string
+  zone: string
   /** a-article, v-video or p-photogallery */
   type: string
   pubDate: string
@@ -41,20 +37,20 @@ export interface IRssArticle {
     }
     email: string
     description: string
-    id: number
+    id: string
   }[]
   image: {
     imageTitle: string
-    id: number
+    id: string
     type: string
     url: string
   }
   audio: {
     audioTitle: string
     audioDescription: string
-    id: number
+    id: string
     /** seconds */
-    duration: number
+    duration: string
     /** audio/mp3 */
     mime: string
     url: string
@@ -65,19 +61,19 @@ export interface IRssArticle {
     guid: string
     /** Defines relation between article and video
      * 0=SameItem, 1=MainImage,2=EmbededInContent */
-    relType: number
-    id: number
-    width: number
-    height: number
+    relType: string
+    id: string
+    width: string
+    height: string
     /** seconds */
-    duration: number
+    duration: string
     url: string
     thumbnail: string
   }
   /** story array */
   relatedStories: {
     storyTitle: string
-    id: number
+    id: string
     pubDate: string
     /** a-article, v-video or p-photogallery */
     type: string
