@@ -39,6 +39,7 @@
     "@types/aws-lambda": "0.0.21",
     "@types/jasmine": "^2.6.2",
     "@types/node": "^8.0.47",
+    "@types/request-promise-native": "^1.0.10",
     "jasmine": "^2.8.0",
     "prettier": "^1.7.4",
     "rimraf": "^2.6.2",
