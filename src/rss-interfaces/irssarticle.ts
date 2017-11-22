@@ -1,11 +1,13 @@
-import { IArticle } from 'voa-core-shared'
 import { IFeed, IRssEnvolope, IFeedUrl } from './irssenvolope'
 
 export class RssArticle implements IFeed<IRssArticle> {
   readonly feedUrl = 'mobapp/articles.xml'
 
   mapData(data: IRssEnvolope): IRssArticle[] {
-    return data.rss.channel.item.map(i => i.article)
+    if (Array.isArray(data.rss.channel.item)) {
+      return data.rss.channel.item.map(i => i.article)
+    }
+    return [data.rss.channel.item.article]
   }
 }
 

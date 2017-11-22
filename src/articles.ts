@@ -11,18 +11,16 @@ export async function articles(
 
   let baseUrl = resolveBaseUrl()
 
-  if (event && event.queryStringParameters) {
-    const audience = event.queryStringParameters['source']
-    console.log(audience)
-    if (audience) {
-      baseUrl = resolveBaseUrl(audience.toLowerCase())
-    }
+  const queryParams = event ? event.queryStringParameters || {} : {}
+
+  const audience = queryParams['source']
+  if (audience) {
+    baseUrl = resolveBaseUrl(audience.toLowerCase())
+    delete queryParams['source']
   }
 
-  console.log(baseUrl)
-
   try {
-    articlesArray = await getArticles(baseUrl)
+    articlesArray = await getArticles(baseUrl, queryParams)
   } catch (ex) {
     err = ex
   } finally {

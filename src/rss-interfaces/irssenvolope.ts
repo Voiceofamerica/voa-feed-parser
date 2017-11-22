@@ -22,7 +22,7 @@ export interface IRssEnvolope {
       language
       copyright
       lastBuildDate
-      item: IRssArticleEnvelope[]
+      item: IRssArticleEnvelope | IRssArticleEnvelope[]
     }
   }
 }
