@@ -5,6 +5,8 @@ export class RssBreakingNews extends FeedItem<IRssArticle> {
   readonly feedUrl = 'mobapp/breakingnews.xml'
 
   openEnvelope(envelopedData: any): IRssArticle {
-    return envelopedData.article
+    return envelopedData
+      ? envelopedData.article
+      : null
   }
 }

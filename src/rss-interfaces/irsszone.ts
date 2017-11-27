@@ -4,7 +4,9 @@ export class RssZone extends FeedItem<IRssZone> {
   readonly feedUrl = 'mobapp/zones.xml'
 
   openEnvelope(envelopedData: any): IRssZone {
-    return envelopedData.zone
+        return envelopedData
+      ? envelopedData.zone
+      : null
   }
 }
 

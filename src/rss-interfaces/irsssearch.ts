@@ -5,6 +5,8 @@ export class RssSearch extends FeedItem<IRssArticle> {
   readonly feedUrl = 'mobapp/search.xml'
 
   openEnvelope(envelopedData: any): IRssArticle {
-    return envelopedData.article
+        return envelopedData
+      ? envelopedData.article
+      : null
   }
 }
