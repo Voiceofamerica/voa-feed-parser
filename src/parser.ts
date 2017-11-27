@@ -1,6 +1,5 @@
 import { QueryParams } from 'voa-core-shared'
-import { IRssEnvolope, IFeed, IFeedUrl } from './rss-interfaces/irssenvolope'
-import { RssArticle, IRssArticle } from './rss-interfaces/irssarticle'
+import { IRssEnvelope, IFeed, IFeedUrl } from './rss-interfaces/irssenvelope'
 import { promisify } from 'bluebird'
 import { parseString } from 'xml2js'
 import * as request from 'request-promise-native'
@@ -8,16 +7,9 @@ const url = require('url')
 
 const parseStringAsync = promisify(parseString)
 
-export async function getArticles(
-  baseUrl: string,
-  queryParams: QueryParams = {}
-): Promise<IRssArticle[]> {
-  return await getParsedContent<IRssArticle>(baseUrl, new RssArticle(), queryParams)
-}
-
-async function getParsedContent<TSource>(
-  baseUrl: string,
+export async function getParsedContent<TSource>(
   feed: IFeed<TSource>,
+  baseUrl: string,
   queryParams = {}
 ): Promise<TSource[]> {
   const response = await getFeedContent(baseUrl, feed, queryParams)
@@ -26,7 +18,7 @@ async function getParsedContent<TSource>(
   return source
 }
 
-async function parseXmlContent(feedContent): Promise<IRssEnvolope> {
+async function parseXmlContent(feedContent): Promise<IRssEnvelope> {
   return await parseStringAsync(feedContent, {
     explicitArray: false,
     mergeAttrs: true,

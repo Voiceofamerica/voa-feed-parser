@@ -1,1 +1,1 @@
-export { articles } from './src/articles'
+export { articles, zones } from './src/endpoints'

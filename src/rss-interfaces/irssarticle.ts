@@ -1,18 +1,11 @@
-import { IFeed, IRssEnvolope, IFeedUrl } from './irssenvolope'
+import { IFeed, IRssEnvelope, IFeedUrl, FeedItem } from './irssenvelope'
 
-export class RssArticle implements IFeed<IRssArticle> {
+export class RssArticle extends FeedItem<IRssArticle> {
   readonly feedUrl = 'mobapp/articles.xml'
 
-  mapData(data: IRssEnvolope): IRssArticle[] {
-    if (Array.isArray(data.rss.channel.item)) {
-      return data.rss.channel.item.map(i => i.article)
-    }
-    return [data.rss.channel.item.article]
+  openEnvelope(envelopedData: any): IRssArticle {
+    return envelopedData.article
   }
-}
-
-export interface IRssArticleEnvelope {
-  article: IRssArticle
 }
 
 export interface IRssArticle {

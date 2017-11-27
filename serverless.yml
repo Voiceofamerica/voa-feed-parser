@@ -20,3 +20,10 @@ functions:
           path: articles
           method: get
           cors: true
+  zones:
+    handler: handler.zones
+    events:
+      - http:
+          path: zones
+          method: get
+          cors: true

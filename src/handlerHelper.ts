@@ -1,14 +1,21 @@
-import { getArticles } from './parser'
 import { Response } from './response'
 import { APIGatewayEvent, APIGatewayEventRequestContext, Callback } from 'aws-lambda'
 import { ZhUrl, FaUrl, EnUrl } from './config'
+import { QueryParams } from 'voa-core-shared/dist/interfaces/queryParams'
 
-export async function articles(
+type IDataGetter<TResult> = (
+  baseUrl: string,
+  queryParams: QueryParams
+) => Promise<TResult[]>
+
+export async function handleRequest<TResult>(
   event: APIGatewayEvent,
   context: APIGatewayEventRequestContext,
-  callback: Callback
+  callback: Callback,
+  getter: IDataGetter<TResult>
 ) {
-  let err, articlesArray
+  let err: any
+  let resultArray: TResult[] = []
 
   let baseUrl = resolveBaseUrl()
 
@@ -21,11 +28,11 @@ export async function articles(
   }
 
   try {
-    articlesArray = await getArticles(baseUrl, queryParams)
+    resultArray = await getter(baseUrl, queryParams)
   } catch (ex) {
     err = ex
   } finally {
-    callback(null, new Response(articlesArray, err))
+    callback(null, new Response(resultArray, err))
   }
 }
 

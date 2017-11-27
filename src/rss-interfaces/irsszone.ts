@@ -1,4 +1,12 @@
-const feedUrl = `mobapp/zones.xml`
+import { IFeed, IRssEnvelope, FeedItem } from './irssenvelope'
+
+export class RssZone extends FeedItem<IRssZone> {
+  readonly feedUrl = 'mobapp/zones.xml'
+
+  openEnvelope(envelopedData: any): IRssZone {
+    return envelopedData.zone
+  }
+}
 
 // Feed Parameters
 /** SiteID integer null Identifier of the website. When parameter is not present, id of
