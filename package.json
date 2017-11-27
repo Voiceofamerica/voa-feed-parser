@@ -13,6 +13,7 @@
     "standardize": "prettier *.ts ./src/*.ts ./src/**/*.ts --write",
     "predeploy": "npm run standardize && npm run lint && npm test",
     "deploy": "serverless deploy -v",
+    "deploy:production": "serverless deploy -v --stage prod",
     "logs": "serverless logs -f articles -t",
     "invoke": "serverless invoke -f articles -l",
     "offline": "serverless offline --port 3007 start",

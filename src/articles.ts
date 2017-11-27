@@ -1,6 +1,7 @@
 import { getArticles } from './parser'
 import { Response } from './response'
 import { APIGatewayEvent, APIGatewayEventRequestContext, Callback } from 'aws-lambda'
+import { ZhUrl, FaUrl, EnUrl } from './config'
 
 export async function articles(
   event: APIGatewayEvent,
@@ -31,11 +32,11 @@ export async function articles(
 function resolveBaseUrl(target?: string): string {
   switch (target) {
     case 'zh':
-      return 'https://www.voachinese.com'
+      return ZhUrl
     case 'fa':
-      return 'https://ir.voanews.com'
+      return FaUrl
     case 'en':
     default:
-      return 'https://www.rferl.org'
+      return EnUrl
   }
 }
