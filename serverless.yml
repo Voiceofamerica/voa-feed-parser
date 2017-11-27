@@ -27,3 +27,17 @@ functions:
           path: zones
           method: get
           cors: true
+  search:
+    handler: handler.search
+    events:
+      - http:
+          path: search
+          method: get
+          cors: true
+  breakingnews:
+    handler: handler.breakingNews
+    events:
+      - http:
+          path: breakingnews
+          method: get
+          cors: true

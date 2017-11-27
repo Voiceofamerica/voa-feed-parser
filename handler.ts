@@ -1,1 +1,1 @@
-export { articles, zones } from './src/endpoints'
+export { articles, zones, search, breakingNews } from './src/endpoints'
