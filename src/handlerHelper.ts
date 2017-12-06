@@ -1,7 +1,7 @@
 import { Response } from './response'
 import { APIGatewayEvent, APIGatewayEventRequestContext, Callback } from 'aws-lambda'
 import { ZhUrl, FaUrl, EnUrl } from './config'
-import { QueryParams } from 'voa-core-shared/dist/interfaces/queryParams'
+import { QueryParams } from '@voiceofamerica/voa-core-shared/dist/interfaces/queryParams'
 
 type IDataGetter<TResult> = (
   baseUrl: string,

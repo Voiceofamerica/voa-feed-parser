@@ -6,7 +6,6 @@
 2. `npm test`
 2. - `npm run offline` or `npm run offline -- --stage prod` or `npm run offline:local`
 2. Debug using VS Code debug tools -- `debug.ts` exists solely for debugging purposes
-* `npm update-shared` to update voa-code-shared library
 
 ## Deployment
 `serverless.yml` contains AWS Lambda configuration

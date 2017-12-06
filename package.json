@@ -16,8 +16,7 @@
     "deploy:production": "serverless deploy -v --stage prod",
     "logs": "serverless logs -f articles -t",
     "invoke": "serverless invoke -f articles -l",
-    "offline": "serverless offline --port 3007 start",
-    "update-shared": "npm i https://github.com/Voiceofamerica/voa-core-shared.git"
+    "offline": "serverless offline --port 3007 start"
   },
   "repository": {
     "type": "git",
@@ -30,10 +29,10 @@
   },
   "homepage": "https://github.com/Voiceofamerica/voa-mobile-server#readme",
   "dependencies": {
+    "@voiceofamerica/voa-core-shared": "^1.25.0",
     "bluebird": "^3.5.1",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5",
-    "voa-core-shared": "git+https://github.com/Voiceofamerica/voa-core-shared.git",
     "xml2js": "^0.4.19"
   },
   "devDependencies": {

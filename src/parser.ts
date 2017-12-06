@@ -1,4 +1,4 @@
-import { QueryParams } from 'voa-core-shared'
+import { QueryParams } from '@voiceofamerica/voa-core-shared'
 import { IRssEnvelope, IFeed, IFeedUrl } from './rss-interfaces/irssenvelope'
 import { promisify } from 'bluebird'
 import { parseString } from 'xml2js'

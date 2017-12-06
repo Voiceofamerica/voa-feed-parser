@@ -23,7 +23,7 @@
 //   }
 // }
 
-// import { IArticle } from 'voa-core-shared'
+// import { IArticle } from '@voiceofamerica/voa-core-shared'
 // import { IRssArticle } from './src/rss-interfaces/irssarticle'
 // function adaptor(source: IRssArticle): IArticle {
 //   for (let prop in source) {
