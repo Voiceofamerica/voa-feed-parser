@@ -41,3 +41,45 @@ functions:
           path: breakingnews
           method: get
           cors: true
+  topstories:
+    handler: handler.topStories
+    events:
+      - http:
+          path: topstories
+          method: get
+          cors: true
+  scheduler:
+    handler: handler.scheduler
+    events:
+      - http:
+          path: scheduler
+          method: get
+          cors: true
+  videoscheduler:
+    handler: handler.videoScheduler
+    events:
+      - http:
+          path: videoscheduler
+          method: get
+          cors: true
+  liveaudio:
+    handler: handler.liveAudio
+    events:
+      - http:
+          path: liveaudio
+          method: get
+          cors: true
+  livevideo:
+    handler: handler.liveVideo
+    events:
+      - http:
+          path: livevideo
+          method: get
+          cors: true
+  audioclips:
+    handler: handler.audioClips
+    events:
+      - http:
+          path: audioclips
+          method: get
+          cors: true

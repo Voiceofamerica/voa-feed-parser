@@ -26,11 +26,11 @@ export interface IRssEnvelope {
 export abstract class FeedItem<TItem> implements IFeed<TItem> {
   abstract readonly feedUrl: string
 
-  abstract openEnvelope(envelopedData: any): TItem
+  abstract openEnvelope(envelopedData: any): TItem | null
 
   mapData(data: IRssEnvelope): TItem[] {
     if (Array.isArray(data.rss.channel.item)) {
-      return data.rss.channel.item.map(i => this.openEnvelope(i))
+      return data.rss.channel.item.filter(i => i).map(i => this.openEnvelope(i as TItem))
     }
     return [this.openEnvelope(data.rss.channel.item)]
   }

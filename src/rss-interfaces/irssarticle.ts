@@ -35,7 +35,7 @@ export interface IRssArticle {
     id: string
   }[]
   image: {
-    imageTitle: string
+    imageTitle?: string
     id: string
     type: string
     url: string
