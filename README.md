@@ -17,5 +17,5 @@
 **Note:** To store secrets implement `https://github.com/marcy-terui/serverless-crypt` or similar
 
 ## Endpoints
-* dev: https://63o324uukg.execute-api.us-east-1.amazonaws.com/dev
-* prod: https://xvjdnlm1a4.execute-api.us-east-1.amazonaws.com/prod
+* dev: https://dev.voamobileendpoints.com/feed/
+* prod: https://prod.voamobileendpoints.com/feed/
