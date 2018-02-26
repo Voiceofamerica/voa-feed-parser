@@ -10,7 +10,7 @@
     "test": "JASMINE_CONFIG_PATH=./jasmine.json jasmine",
     "lint": "tslint -p .",
     "posttest": "rimraf tests/.build",
-    "standardize": "prettier *.ts ./src/*.ts ./src/**/*.ts --write",
+    "standardize": "prettier '**/*.ts' --write",
     "predeploy": "npm run standardize && npm run lint && npm test",
     "deploy": "serverless deploy -v",
     "deploy:production": "serverless deploy -v --stage prod",
