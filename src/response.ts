@@ -1,7 +1,7 @@
 export class Response {
   public readonly statusCode: number
   public readonly body: string
-  public readonly headers: {
+  public readonly headers = {
     'Content-Type': 'application/json'
   }
 
