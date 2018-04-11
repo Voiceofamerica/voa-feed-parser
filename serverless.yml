@@ -13,11 +13,12 @@ custom:
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs8.10
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   profile: voa
   environment: ${file(./env.yml):${opt:stage, self:provider.stage}}
+  timeout: 30
 
 functions:
   articles:
@@ -90,3 +91,19 @@ functions:
           path: audioclips
           method: get
           cors: true
+    # resources:
+    #   Resources:
+    #     ApiGatewayMethodShorturlVarGet:
+    #       Properties:
+    #         ResourceId:
+    #           Ref: ApiGatewayResourceArticles
+    #         RestApiId:
+    #           Ref: ApiGatewayRestApi
+    #         RequestParameters:
+    #           method.request.path.shortUrl: true
+    #         Integration:
+    #           RequestParameters:
+    #             integration.request.path.shortUrl: method.request.path.shortUrl
+    #           CacheNamespace: ApiGatewayMethodShorturlVarGetCacheNS
+    #           CacheKeyParameters:
+    #             - method.request.path.shortUrl
