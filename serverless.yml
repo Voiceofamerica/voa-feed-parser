@@ -3,6 +3,7 @@ service: voa-feedparser
 plugins:
   - serverless-plugin-typescript
   - serverless-domain-manager
+  - serverless-plugin-bind-deployment-id
   - serverless-offline
 
 custom:
@@ -91,19 +92,34 @@ functions:
           path: audioclips
           method: get
           cors: true
-    # resources:
-    #   Resources:
-    #     ApiGatewayMethodShorturlVarGet:
-    #       Properties:
-    #         ResourceId:
-    #           Ref: ApiGatewayResourceArticles
-    #         RestApiId:
-    #           Ref: ApiGatewayRestApi
-    #         RequestParameters:
-    #           method.request.path.shortUrl: true
-    #         Integration:
-    #           RequestParameters:
-    #             integration.request.path.shortUrl: method.request.path.shortUrl
-    #           CacheNamespace: ApiGatewayMethodShorturlVarGetCacheNS
-    #           CacheKeyParameters:
-    #             - method.request.path.shortUrl
+
+resources:
+  Resources:
+    ApiGatewayStage:
+      Type: 'AWS::ApiGateway::Stage'
+      Properties:
+        DeploymentId:
+          Ref: __deployment__
+        RestApiId:
+          Ref: ApiGatewayRestApi
+        StageName: ${self:provider.stage}
+        CacheClusterEnabled: true
+        CacheClusterSize: "0.5"
+    # ApiGatewayDeployment:
+    #   Type: ' AWS::ApiGateway::Deployment'
+    #   CacheTtlInSeconds: "900"
+    # ApiGatewayMethodArticlesGet:
+    #   Type: 'AWS::ApiGateway::Method'
+    #   Properties:
+    #     RequestParameters:
+    #       method.request.path.shortUrl: true
+    #     ResourceId:
+    #       Ref: ApiGatewayResourceArticles
+    #     RestApiId:
+    #       Ref: ApiGatewayRestApi
+    #     Integration:
+    #       RequestParameters:
+    #         integration.request.path.shortUrl: method.request.path.shortUrl
+    #       CacheNamespace: ApiGatewayMethodArticlesGetCacheNS
+    #       CacheKeyParameters:
+    #         - method.request.path.shortUrl
