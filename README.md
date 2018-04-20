@@ -4,7 +4,7 @@
 ## Developers
 1. `npm install`
 2. `npm test`
-2. - `npm run offline` or `npm run offline -- --stage prod` or `npm run offline:local`
+2. - `npm run offline` or `npm run offline -- --stage prod`
 2. Debug using VS Code debug tools -- `debug.ts` exists solely for debugging purposes
 
 ## Deployment

@@ -8,9 +8,9 @@ plugins:
 
 custom:
   customDomain:
-    domainName: ${opt:stage, 'dev'}.voamobileendpoints.com
+    domainName: ${self:provider.stage}.voamobileendpoints.com
     basePath: feed
-    stage: ${opt:stage, 'dev'}
+    stage: ${self:provider.stage}
 
 provider:
   name: aws
@@ -18,7 +18,7 @@ provider:
   stage: ${opt:stage, 'dev'}
   region: ${opt:region, 'us-east-1'}
   profile: voa
-  environment: ${file(./env.yml):${opt:stage, self:provider.stage}}
+  environment: ${file(./env.yml):${self:provider.stage}}
   timeout: 30
 
 functions:
