@@ -29,9 +29,12 @@ export abstract class FeedItem<TItem> implements IFeed<TItem> {
   abstract openEnvelope(envelopedData: any): TItem | null
 
   mapData(data: IRssEnvelope): TItem[] {
-    if (Array.isArray(data.rss.channel.item)) {
-      return data.rss.channel.item.filter(i => i).map(i => this.openEnvelope(i as TItem))
-    }
-    return [this.openEnvelope(data.rss.channel.item)]
+    const items = Array.isArray(data.rss.channel.item)
+      ? data.rss.channel.item
+      : [data.rss.channel.item]
+
+    const unwrapped = items.map(i => this.openEnvelope(i) as TItem)
+
+    return unwrapped.filter(i => i)
   }
 }

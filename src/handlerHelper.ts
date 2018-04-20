@@ -1,6 +1,6 @@
 import { Response } from './response'
 import { APIGatewayEvent, APIGatewayEventRequestContext, Callback } from 'aws-lambda'
-import { ZhUrl, FaUrl, EnUrl } from './config'
+import { ZhUrl, FaUrl, EnUrl, EnUsUrl } from './config'
 import { QueryParams } from '@voiceofamerica/voa-core-shared/dist/interfaces/queryParams'
 
 type IDataGetter<TResult> = (
@@ -43,7 +43,9 @@ function resolveBaseUrl(target?: string): string {
     case 'fa':
       return FaUrl
     case 'en':
-    default:
       return EnUrl
+    case 'en-us':
+    default:
+      return EnUsUrl
   }
 }

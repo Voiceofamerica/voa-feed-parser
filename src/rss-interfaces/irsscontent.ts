@@ -21,7 +21,7 @@ export class RssTopStories extends FeedItem<IRssArticle> {
 export class RssAudioClips extends FeedItem<IRssArticle> {
   readonly feedUrl = 'mobapp/audioclips.xml'
 
-  openEnvelope(envelopedData: any): IRssArticle {
+  openEnvelope(envelopedData: any): IRssArticle | null {
     const unwrappedData = envelopedData ? envelopedData.program : null
     return unwrappedData ? this.transformData(unwrappedData) : null
   }
