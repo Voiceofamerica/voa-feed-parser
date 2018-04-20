@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/Voiceofamerica/voa-mobile-server#readme",
   "dependencies": {
-    "@voiceofamerica/voa-core-shared": "^1.53.0",
+    "@voiceofamerica/voa-core-shared": "^1.54.0",
     "bluebird": "^3.5.1",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5",
