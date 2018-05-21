@@ -44,6 +44,7 @@
     "prettier": "^1.11.1",
     "rimraf": "^2.6.2",
     "serverless": "^1.26.1",
+    "serverless-content-encoding": "^1.0.22",
     "serverless-domain-manager": "^2.3.6",
     "serverless-offline": "^3.20.1",
     "serverless-plugin-bind-deployment-id": "^1.0.1",

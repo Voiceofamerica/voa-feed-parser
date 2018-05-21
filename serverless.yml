@@ -3,6 +3,7 @@ service: voa-feedparser
 plugins:
   - serverless-plugin-typescript
   - serverless-domain-manager
+  - serverless-content-encoding
   - serverless-plugin-bind-deployment-id
   - serverless-offline
 
@@ -11,6 +12,8 @@ custom:
     domainName: ${self:provider.stage}.voamobileendpoints.com
     basePath: feed
     stage: ${self:provider.stage}
+  contentEncoding:
+    minimumCompressionSize: 0 # Minimum body size required for compression in bytes
 
 provider:
   name: aws
