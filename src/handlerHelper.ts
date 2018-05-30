@@ -1,6 +1,6 @@
 import { Response } from './response'
 import { APIGatewayEvent, APIGatewayEventRequestContext, Callback } from 'aws-lambda'
-import { ZhUrl, FaUrl, EnUrl, EnUsUrl } from './config'
+import * as config from './config'
 import { QueryParams } from '@voiceofamerica/voa-core-shared/dist/interfaces/queryParams'
 
 type IDataGetter<TResult> = (
@@ -38,14 +38,21 @@ export async function handleRequest<TResult>(
 
 function resolveBaseUrl(target?: string): string {
   switch (target) {
-    case 'zh':
-      return ZhUrl
-    case 'fa':
-      return FaUrl
     case 'en':
-      return EnUrl
+      return config.EnUrl
     case 'en-us':
+      return config.EnUsUrl
+    case 'fa':
+      return config.FaUrl
+    case 'ko':
+      return config.KoUrl
+    case 'ur':
+      return config.UrUrl
+    case 'vi':
+      return config.ViUrl
+    case 'zh':
+      return config.ZhUrl
     default:
-      return EnUsUrl
+      return config.EnUsUrl
   }
 }
