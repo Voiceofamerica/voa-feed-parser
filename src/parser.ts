@@ -3,7 +3,8 @@ import { IRssEnvelope, IFeed, IFeedUrl } from './rss-interfaces/irssenvelope'
 import { promisify } from 'bluebird'
 import { parseString } from 'xml2js'
 import * as request from 'request-promise-native'
-const url = require('url')
+import * as url from 'url'
+import * as querystring from 'querystring'
 
 const parseStringAsync = promisify(parseString)
 
@@ -31,5 +32,6 @@ async function getFeedContent(
   queryParams = {}
 ) {
   const feedUrl = url.resolve(baseUrl, feedUrlProvider.feedUrl)
+  console.log(`${feedUrl}?${querystring.stringify(queryParams)}`)
   return await request(feedUrl, { qs: queryParams, json: true })
 }

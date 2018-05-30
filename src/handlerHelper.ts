@@ -30,6 +30,7 @@ export async function handleRequest<TResult>(
   try {
     resultArray = await getter(baseUrl, queryParams)
   } catch (ex) {
+    console.error(ex)
     err = ex
   } finally {
     callback(null, new Response(resultArray, err))
