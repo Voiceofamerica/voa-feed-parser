@@ -18,6 +18,16 @@ if (!KoUrl) {
   throw new Error('ko (korean) feed url not configured')
 }
 
+export const PrsUrl: string = process.env.PRS_URL || ''
+if (!PrsUrl) {
+  throw new Error('prs (dari) feed url not configured')
+}
+
+export const PusUrl: string = process.env.PUS_URL || ''
+if (!PusUrl) {
+  throw new Error('pus (pashto) feed url not configured')
+}
+
 export const UrUrl: string = process.env.UR_URL || ''
 if (!UrUrl) {
   throw new Error('ur (urdu) feed url not configured')

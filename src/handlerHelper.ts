@@ -49,6 +49,10 @@ function resolveBaseUrl(target?: string): string {
       return config.KoUrl
     case 'ur':
       return config.UrUrl
+    case 'prs':
+      return config.PrsUrl
+    case 'pus':
+      return config.PusUrl
     case 'vi':
       return config.ViUrl
     case 'zh':
