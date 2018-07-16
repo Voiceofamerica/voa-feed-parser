@@ -39,20 +39,32 @@ export async function handleRequest<TResult>(
 
 function resolveBaseUrl(target?: string): string {
   switch (target) {
+    case 'am':
+      return config.AmUrl
+    case 'bo':
+      return config.BoUrl
     case 'en':
       return config.EnUrl
     case 'en-us':
       return config.EnUsUrl
+    case 'es':
+      return config.EsUrl
     case 'fa':
       return config.FaUrl
     case 'ko':
       return config.KoUrl
+    case 'om':
+      return config.OmUrl
     case 'ur':
       return config.UrUrl
     case 'prs':
       return config.PrsUrl
     case 'pus':
       return config.PusUrl
+    case 'ru':
+      return config.RuUrl
+    case 'tg':
+      return config.TgUrl
     case 'vi':
       return config.ViUrl
     case 'zh':
