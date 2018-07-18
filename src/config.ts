@@ -55,7 +55,7 @@ if (!RuUrl) {
 
 export const TgUrl: string = process.env.TG_URL || ''
 if (!TgUrl) {
-  throw new Error('tg (tigrinya) feed url not configured')
+  throw new Error('tg (tigrigna) feed url not configured')
 }
 
 export const UrUrl: string = process.env.UR_URL || ''
